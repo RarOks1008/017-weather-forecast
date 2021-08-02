@@ -1,0 +1,4 @@
+<p>city works!</p>
+<a routerLink="/home">Home</a>
+<app-toggle [toggle]="toggle" (toggleEvent)="toggleDo($event)"></app-toggle>
+<app-cities *ngIf="toggle" [cities]="3"></app-cities>
