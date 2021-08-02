@@ -1,4 +1,15 @@
-<p>city works!</p>
+<div>
+    <div>
+        <h1>{{cityItem && cityItem.name}}</h1>
+        <h2>{{cityItemDate | date: 'dd-MM-yyyy HH-mm-ss'}}</h2>
+    </div>
+    <div>
+        <p>Current weather details:</p>
+        <p>Temperature: {{cityItem && cityItem.main && (cityItem.main.temp - 273.15).toFixed(2)}} &deg;C ({{cityItem && cityItem.main && ((cityItem.main.temp - 273.15) * 9 / 5 + 32).toFixed(2)}} &deg;F)</p>
+        <p>Wind: {{cityItem && cityItem.wind && (cityItem.wind.speed * 1.609).toFixed(2)}} km/h</p>
+        <p>Humidity: {{cityItem && cityItem.main && cityItem.main.humidity}} %</p>
+    </div>
+</div>
 <a routerLink="/home">Home</a>
 <app-toggle [toggle]="toggle" (toggleEvent)="toggleDo($event)"></app-toggle>
 <app-cities *ngIf="toggle" [cities]="3"></app-cities>

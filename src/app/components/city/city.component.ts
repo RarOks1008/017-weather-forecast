@@ -14,6 +14,7 @@ export class CityComponent implements OnInit {
   public toggle = false;
   private waitTime = 3000;
   public cityItem;
+  public cityItemDate;
 
   public toggleDo(toggle: boolean) {
     this.toggle = toggle;
@@ -34,6 +35,10 @@ export class CityComponent implements OnInit {
         if (!this.cityItem) {
           this.router.navigate(['home']);
         }
+        if (!this.cityItem.dt) {
+          this.router.navigate(['home']);
+        }
+        this.cityItemDate = new Date(this.cityItem.dt * 1000);
       },
       () => { this.errorFunc("Error", "Unexpected error occured. Please try again later."); }
     ));
@@ -49,4 +54,7 @@ export class CityComponent implements OnInit {
   //TODO treba se i dodati neki filter za datume
   //TODO smisliti kako najbolje cuvati 9 poslednje trazenih gradova
   //TODO treba nakon 3 sekunde da se vrati na home jer nema tog grada
+  // |date: 'dd-MM-yyyy HH-mm' za kraci datum, ide bez sekunde!
+  //Skini sve konzol logove
+  // koristi One call api za dohvatanje temperature za 7 dana preko https://api.openweathermap.org/data/2.5/onecall?lat={latitude}&lon={longitude}&exclude=hourly,minutely&appid={onaj_moj_kljuc}
 }
