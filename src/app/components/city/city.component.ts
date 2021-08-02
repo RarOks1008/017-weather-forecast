@@ -47,5 +47,6 @@ export class CityComponent implements OnInit {
   
 
   //TODO treba se i dodati neki filter za datume
-  //smisliti kako najbolje cuvati 9 poslednje trazenih gradova
+  //TODO smisliti kako najbolje cuvati 9 poslednje trazenih gradova
+  //TODO treba nakon 3 sekunde da se vrati na home jer nema tog grada
 }
