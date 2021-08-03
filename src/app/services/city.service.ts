@@ -14,6 +14,11 @@ export class CityService {
     return city;
   }
 
+  public getTemperatures(lon: Number, lat: Number): Observable<any> {
+    var temperatures = this.service.get("https://api.openweathermap.org/data/2.5/onecall?lat="+ lat +"&lon=" + lon + "&exclude=hourly,minutely&appid=" + this.wT);
+    return temperatures;
+  }
+
   public check_city(name: string, date: Date) {
     if (!name) return;
     if (!date) return;
