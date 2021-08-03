@@ -21,7 +21,6 @@ export class CitiesComponent implements OnInit {
         this.cities--;
       }
     }
-    console.log(this.cityList);
   }
 
   public selected(name: string) {

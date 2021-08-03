@@ -16,6 +16,7 @@ export class CityComponent implements OnInit {
   public toggle = false;
   public cityItem;
   public cityItemDate;
+  public typeSelected = 'chart';
 
   lineChartData: ChartDataSets[] = [
     { data: [], label: 'Temperature' },
@@ -87,7 +88,7 @@ export class CityComponent implements OnInit {
     ));
   }
 
-  //TODO obrisati sve komentare
-  //TODO odabir koji view da se vidi
-  //Skini sve konzol logove
+  public selectData(type: string) {
+    this.typeSelected = type;
+  }
 }

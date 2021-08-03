@@ -11,7 +11,12 @@
             <p>Humidity: {{cityItem && cityItem.main && cityItem.main.humidity}} %</p>
         </div>
     </div>
-    <canvas baseChart 
+    <div class="to_right">
+        <button (click)="selectData('chart')" [class.selected_button]="typeSelected == 'chart'">Chart</button>
+        <button (click)="selectData('table')" [class.selected_button]="typeSelected == 'table'">Table</button>
+    </div>
+    <canvas *ngIf="typeSelected == 'chart'"
+        baseChart
         [datasets]="lineChartData" 
         [labels]="lineChartLabels" 
         [options]="lineChartOptions"
@@ -20,7 +25,7 @@
         [chartType]="lineChartType" 
         [plugins]="lineChartPlugins">
     </canvas>
-    <table>
+    <table *ngIf="typeSelected == 'table'">
         <tr>
             <th>Day</th>
             <th>Temperature</th>
