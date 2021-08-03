@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CityService } from 'src/app/services/city.service';
 
 @Component({
   selector: 'app-cities',
@@ -7,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CitiesComponent implements OnInit {
   @Input() cities: number;
+  public cityList = [];
 
-  constructor() { }
+  constructor(private cityService: CityService) { }
 
   ngOnInit(): void {
+    this.cityList = this.cityService.getCities();
   }
 
 }

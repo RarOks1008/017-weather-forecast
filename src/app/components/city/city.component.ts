@@ -31,7 +31,6 @@ export class CityComponent implements OnInit {
     this.subscription.add(this.cityService.geCity(city).subscribe(
       response => {
         this.cityItem = response;
-        console.log(this.cityItem);
         if (!this.cityItem) {
           this.router.navigate(['home']);
         }
@@ -39,6 +38,7 @@ export class CityComponent implements OnInit {
           this.router.navigate(['home']);
         }
         this.cityItemDate = new Date(this.cityItem.dt * 1000);
+        this.cityService.check_city(this.cityItem.name, this.cityItemDate);
       },
       () => { this.errorFunc("Error", "Unexpected error occured. Please try again later."); }
     ));
@@ -52,7 +52,6 @@ export class CityComponent implements OnInit {
   
 
   //TODO treba se i dodati neki filter za datume
-  //TODO smisliti kako najbolje cuvati 9 poslednje trazenih gradova
   //TODO treba nakon 3 sekunde da se vrati na home jer nema tog grada
   // |date: 'dd-MM-yyyy HH-mm' za kraci datum, ide bez sekunde!
   //Skini sve konzol logove
