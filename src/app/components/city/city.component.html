@@ -20,6 +20,16 @@
         [chartType]="lineChartType" 
         [plugins]="lineChartPlugins">
     </canvas>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Temperature</th>
+        </tr>
+        <tr *ngFor="let td of tableData">
+            <td>{{td.day}}</td>
+            <td>{{td.temp}}</td>
+        </tr>
+    </table>
     <a routerLink="/home" class="home_link">Go to home page</a>
     <app-toggle [toggle]="toggle" (toggleEvent)="toggleDo($event)"></app-toggle>
     <app-cities *ngIf="toggle" [cities]="3"></app-cities>

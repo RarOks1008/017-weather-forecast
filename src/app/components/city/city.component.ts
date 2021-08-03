@@ -34,6 +34,8 @@ export class CityComponent implements OnInit {
   lineChartPlugins = [];
   lineChartType = 'line';
 
+  tableData = [];
+
   public toggleDo(toggle: boolean) {
     this.toggle = toggle;
   }
@@ -69,11 +71,14 @@ export class CityComponent implements OnInit {
       response => {
         if (!response || !response.daily) return;
         response.daily.forEach((day) => {
-          this.lineChartData[0].data.push(Number((day.temp.day - 273.15).toFixed(2)));
           const dayFullDate = new Date(day.dt * 1000),
             monthDate = dayFullDate.getUTCMonth() + 1,
-            dayDate = dayFullDate.getUTCDate();
-          this.lineChartLabels.push(dayDate + '.' + monthDate + '.');
+            dayDate = dayFullDate.getUTCDate(),
+            chartData = Number((day.temp.day - 273.15).toFixed(2)),
+            chartLabel = dayDate + '.' + monthDate + '.';
+          this.lineChartData[0].data.push(chartData);
+          this.lineChartLabels.push(chartLabel);
+          this.tableData.push({temp: chartData, day: chartLabel});
         });
       },
       () => {
@@ -83,7 +88,6 @@ export class CityComponent implements OnInit {
   }
 
   //TODO obrisati sve komentare
-  //TODO dodaj table view
   //TODO odabir koji view da se vidi
   //Skini sve konzol logove
 }

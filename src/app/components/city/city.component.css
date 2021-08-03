@@ -32,6 +32,13 @@ app-cities {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+}
 
 @media all and (max-width: 500px) {
     .city_info {
