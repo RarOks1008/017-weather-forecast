@@ -20,7 +20,11 @@ export class CityComponent implements OnInit {
     this.toggle = toggle;
   }
 
-  constructor(private route: ActivatedRoute, private router: Router,private toastr: ToastrService, private cityService: CityService) { }
+  constructor(private route: ActivatedRoute, private router: Router,private toastr: ToastrService, private cityService: CityService) {
+    this.route.params.subscribe(() => {
+      this.getCity();
+    });
+  }
 
   ngOnInit(): void {
     this.getCity();

@@ -1,0 +1,9 @@
+app-cities {
+    border: 2px solid #000;
+    margin-top: 10px;
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

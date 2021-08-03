@@ -1,2 +1,5 @@
-<p>cities works!</p>
-{{cities}}
+<div class="city_item" *ngFor="let ct of cityList" (click)="selected(ct.name)">
+    <p>{{ct.name}}</p>
+    <p>{{ct.date | date: 'dd-MM-yyyy HH-mm-ss'}}</p>
+    <div class="city_image"></div>
+</div>

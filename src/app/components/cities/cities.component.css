@@ -1,0 +1,28 @@
+.city_item {
+    width: 33%;
+    padding: 2px;
+    cursor: pointer;
+    border: 2px solid #000;
+    margin-top: 10px;
+}
+.city_image {
+    width: 20px;
+    height: 20px;
+    background-color: #FFFFFF;
+    background-image: url('../../../assets/images/clickable.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+}
+
+@media all and (max-width: 530px) {
+    .city_item {
+        width: 45%;
+    }
+}
+
+@media all and (max-width: 380px) {
+    .city_item {
+        width: 100%;
+    }
+}
