@@ -13,7 +13,7 @@ import { Color, Label } from 'ng2-charts';
 export class CityComponent implements OnInit {
   private citySubscription: Subscription = new Subscription();
   private temperatureSubscription: Subscription = new Subscription();
-  public toggle = false;
+  public toggle = true;
   public cityItem;
   public cityItemDate;
   public typeSelected = 'chart';
