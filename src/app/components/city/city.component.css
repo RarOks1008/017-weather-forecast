@@ -45,6 +45,7 @@ app-cities {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 table, td, th {
     border: 1px solid black;
